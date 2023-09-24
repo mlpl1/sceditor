@@ -3,7 +3,7 @@
 Welcome to sceditor (Schedule Editor) project! This web application allows you to create, edit, and manage schedules with ease.
 
 ## Getting Started
-These instructions will help you set up and run the project on your local machine for development and testing purposes. See the Deployment section for notes on how to deploy the project in production.
+These instructions will help you set up and run the project on your local machine for development and testing purposes. See the [Deployment](#deployment) section for notes on how to deploy the project in production.
 
 ### Installation
 1. Clone the repository and navigate to the project directory:

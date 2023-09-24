@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Foundation\Application;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -15,12 +15,19 @@ use Inertia\Inertia;
 |
 */
 
+Route::get('/', fn() => Inertia::render('Welcome'))->name('welcome');
+
+// FIXME: only authenticated user
+Route::prefix('/user')->group(function () {
+    Route::match(['PUT', 'PATCH'], '/locale/{locale}', [UserController::class, 'setLocale'])->name('users.set-locale');
+});
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/', function () {
+    Route::get('/dashboard', function () {
         return Inertia::render('Dashboard');
     })->name('dashboard');
 });
