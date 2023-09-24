@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import unpluginVueI18n from '@intlify/unplugin-vue-i18n/vite';
 import vue from '@vitejs/plugin-vue';
 import laravel from 'laravel-vite-plugin';
@@ -23,7 +24,7 @@ export default defineConfig({
     unpluginVueI18n({
       include: resolve(
         dirname(fileURLToPath(import.meta.url)),
-        './resources/locales/**'
+        './resources/locales/**',
       ),
     }),
   ],
