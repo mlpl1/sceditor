@@ -10,11 +10,46 @@
     },
     "plugins": ["vue"],
     "rules": {
+        "max-len": "off",
         "import/no-absolute-path": ["error"],
         "vue/multi-word-component-names": [
             "error",
             {
-                "ignores": ["Welcome", "Dashboard"]
+                "ignores": [
+                    "Index",
+                    "Show",
+                    "Create",
+                    "Welcome",
+                    "Dashboard",
+                    "Login",
+                    "Register",
+                    "Banner",
+                    "Checkbox",
+                    "Dropdown",
+                    "Modal"
+                ]
+            }
+        ],
+        "implicit-arrow-linebreak": "off",
+        "object-curly-newline": [
+            "error",
+            {
+                "ObjectPattern": {
+                    "consistent": true
+                }
+            }
+        ],
+        "prefer-destructuring": "off",
+        "vue/html-self-closing": [
+            "error",
+            {
+                "html": {
+                    "void": "any",
+                    "normal": "always",
+                    "component": "always"
+                },
+                "svg": "always",
+                "math": "always"
             }
         ]
     },
@@ -25,5 +60,9 @@
                 "extensions": [".js", ".vue", ".json"]
             }
         }
+    },
+    "globals": {
+        "axios": "readonly",
+        "route": "readonly"
     }
 }

@@ -1,50 +1,31 @@
 <script setup>
 import { isLocaleSupported, setLocale } from '@/i18n';
-import { Head, router, usePage } from '@inertiajs/vue3';
-import { computed, ref, watch } from 'vue';
+import { Head, usePage } from '@inertiajs/vue3';
+import { computed, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
 
 import Banner from '@/Components/Banner.vue';
 
-const props = defineProps({
+defineProps({
   title: {
     type: String,
     default: '',
   },
 });
 
-const showingNavigationDropdown = ref(false);
 const i18n = useI18n();
 const locale = computed(() => usePage().props.locale);
 
 watch(
   locale,
-  async (locale) => {
-    console.log('yay, updating');
-    if (!isLocaleSupported(locale)) {
+  async (newLocale) => {
+    if (!isLocaleSupported(newLocale)) {
       return;
     }
-    console.log('setting locale...');
-    await setLocale(i18n, locale);
+    await setLocale(i18n, newLocale);
   },
-  { immediate: true }
+  { immediate: true },
 );
-
-const switchToTeam = (team) => {
-  router.put(
-    route('current-team.update'),
-    {
-      team_id: team.id,
-    },
-    {
-      preserveState: false,
-    }
-  );
-};
-
-const logout = () => {
-  router.post(route('logout'));
-};
 </script>
 
 <template>
