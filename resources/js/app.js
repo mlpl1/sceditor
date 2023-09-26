@@ -6,6 +6,7 @@ import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { createApp, h } from 'vue';
 import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m';
 import { setupI18n } from './i18n';
+import utils from './utils';
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
@@ -21,6 +22,7 @@ createInertiaApp({
       .use(plugin)
       .use(ZiggyVue)
       .use(setupI18n())
+      .use(utils)
       .mount(el);
   },
   progress: {

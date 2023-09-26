@@ -51,7 +51,10 @@
                 "svg": "always",
                 "math": "always"
             }
-        ]
+        ],
+        "no-unused-vars": ["error", {
+            "varsIgnorePattern": "^\\_"
+        }]
     },
     "settings": {
         "import/resolver": {
