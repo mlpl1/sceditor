@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -15,7 +17,7 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', fn() => Inertia::render('Welcome'))->name('welcome');
+Route::get('/', [DashboardController::class, 'index'])->name('welcome');
 
 // FIXME: only authenticated user
 Route::prefix('/user')->group(function () {
@@ -27,7 +29,5 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return Inertia::render('Dashboard');
-    })->name('dashboard');
+
 });
