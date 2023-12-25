@@ -4,16 +4,16 @@ import { clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
 /**
- * @typedef {import('clsx').ClassValue} ClassValue
+ * @typedef {} ClassValue
  *
- * @typedef {import('vue').App} App
+ * @typedef {} App
  */
 
 /**
  * Merge the class name inputs.
  *
- * @param {ClassValue[]} inputs The class inputs.
- * @returns {string} The
+ * @param {import('clsx').ClassValue[]} inputs The class inputs.
+ * @returns {string}
  */
 export function cn(...inputs) {
   return twMerge(clsx(inputs));
@@ -21,7 +21,7 @@ export function cn(...inputs) {
 
 export default {
   /**
-   * @param {App} app The vue app.
+   * @param {import('vue').App} app The vue app.
    * @param {any[]} options The plugin options.
    */
   install(app, _options) {

@@ -1,6 +1,11 @@
 <script setup>
 import Button from '@/Components/Button.vue';
 import AppLayout from '@/Layouts/AppLayout.vue';
+
+function setDarkTheme() {
+  const rootClassList = document.documentElement.classList;
+  rootClassList.toggle('theme-dark')
+}
 </script>
 
 <template>
@@ -53,6 +58,11 @@ import AppLayout from '@/Layouts/AppLayout.vue';
               size="large"
               >Danger button (lg)</Button
             >
+
+            <Button intent="primary" @click="setDarkTheme">Light/dark Theme</Button>
+
+            <div class="w-5 h-5 bg-primary"></div>
+            <div class="w-5 h-5 bg-secondary"></div>
           </div>
         </div>
       </div>
